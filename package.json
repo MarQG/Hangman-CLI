@@ -1,0 +1,22 @@
+{
+  "name": "hangman-cli",
+  "version": "1.0.0",
+  "description": "Hangman CLI Play hangman using node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarQG/Hangman-CLI.git"
+  },
+  "author": "Ferenc Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarQG/Hangman-CLI/issues"
+  },
+  "homepage": "https://github.com/MarQG/Hangman-CLI#readme",
+  "dependencies": {
+    "inquirer": "^4.0.1"
+  }
+}
