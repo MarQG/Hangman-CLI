@@ -7,13 +7,14 @@ function Game(){
     this.newLetter = new Letters();
     this.newWord = new Words();
     this.gameOver = false;
-    this.guesses = 5;
+    this.guesses = 7;
     this.currentWord = this.newWord.generateCurrentWord();
     this.displayWord = this.newWord.generateDisplayWord(this.currentWord);
     
 
     this.displayGame = function(){
-       console.log(colors.cyan("\nCurrent Word: " + this.displayWord.join(" ") + "\n"));
+        console.log("\nGuesses Left: " + colors.yellow(this.guesses));
+        console.log(colors.cyan("\nCurrent Word: " + this.displayWord.join(" ") + "\n"));
     }
 
     this.getGuess = function(callback){
@@ -31,18 +32,20 @@ function Game(){
                 if(that.newLetter.checkIfValid(answer.userGuess)){
                     that.newLetter.removeAvailableLetter(answer.userGuess);
                     if(that.currentWord.includes(answer.userGuess)){
-                        console.log(colors.green("Correct!"));
+                        console.log(colors.green("\nCorrect!\n"));
                         that.displayWord = that.newWord.updateDisplayWord(answer.userGuess, that.currentWord, that.displayWord);
                         if(that.currentWord === that.displayWord.join("")){
-                            console.log(colors.green("You won!"));
+                            that.displayGame();
+                            console.log(colors.green("You won!\n"));
                             that.gameOver = true;     
                         }   
                     } else {
                         if(that.guesses > 0){
                             that.guesses--;
-                            console.log(colors.red("Wrong!"));
+                            console.log(colors.red("Wrong!\n"));
                         } else {
-                            console.log(colors.red("Sorry you lost!"));
+                            that.displayGame();
+                            console.log(colors.red("\nSorry you lost!\n"));
                             that.gameOver = true;
                         }
                     }
