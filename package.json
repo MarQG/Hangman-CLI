@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MarQG/Hangman-CLI#readme",
   "dependencies": {
+    "colors": "^1.1.2",
     "inquirer": "^4.0.1"
   }
 }

@@ -1,5 +1,3 @@
-
-
 function Letters(){
 
     this.avaiableLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -7,10 +5,6 @@ function Letters(){
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     this.checkIfValid = function(guess){
         return (this.avaiableLetters.indexOf(guess) > -1);
-    }
-
-    this.checkLetterInWord = function(guess, word){
-
     }
 
     this.removeAvailableLetter  = function(guess){
@@ -22,13 +16,3 @@ function Letters(){
 }
 
 module.exports = Letters;
-
-// function checkUserGuess(currentWord, currentGuess)
-    // return if currentGuess is in currentWord
-
-// function checkUserGuessValid(currentGuess)
-    //if currentGuess matches avaiableGuesses
-        // if so
-            // return the userGuess
-        // else
-            // return string userGuess invalid

@@ -1,6 +1,7 @@
 var Words = require("./words.js");
 var Letters = require("./letters.js");
 var inquirer = require("inquirer");
+var colors = require("colors");
 
 function Game(){
     this.newLetter = new Letters();
@@ -12,8 +13,7 @@ function Game(){
     
 
     this.displayGame = function(){
-       console.log(this.currentWord);
-       console.log("Current Word: " + this.displayWord.join(" "));
+       console.log(colors.cyan("\nCurrent Word: " + this.displayWord.join(" ") + "\n"));
     }
 
     this.getGuess = function(callback){
@@ -27,22 +27,22 @@ function Game(){
                     message: "Guess a letter?"
                 }
             ]).then(function(answer){
+                //console.log("\n");
                 if(that.newLetter.checkIfValid(answer.userGuess)){
                     that.newLetter.removeAvailableLetter(answer.userGuess);
                     if(that.currentWord.includes(answer.userGuess)){
-                        console.log("Correct!");
+                        console.log(colors.green("Correct!"));
                         that.displayWord = that.newWord.updateDisplayWord(answer.userGuess, that.currentWord, that.displayWord);
-                        that.displayGame();
                         if(that.currentWord === that.displayWord.join("")){
-                            console.log("You won!");
+                            console.log(colors.green("You won!"));
                             that.gameOver = true;     
                         }   
                     } else {
                         if(that.guesses > 0){
                             that.guesses--;
-                            console.log("Wrong!");
+                            console.log(colors.red("Wrong!"));
                         } else {
-                            console.log("Sorry you lost!");
+                            console.log(colors.red("Sorry you lost!"));
                             that.gameOver = true;
                         }
                     }
@@ -50,11 +50,11 @@ function Game(){
                     
                 } else {
                     if(answer.userGuess.length > 1){
-                        console.log( answer.userGuess + " was not a valid guess. Please enter a lowercase letter only.");
+                        console.log( colors.yellow(answer.userGuess + " was not a valid guess. Please enter a lowercase letter only."));
                     } else if(answer.userGuess.match(/^[a-z]+$/)){
-                        console.log( answer.userGuess + " has already been guessed.");
+                        console.log( colors.yellow(answer.userGuess + " has already been guessed."));
                     } else {
-                        console.log( answer.userGuess + " was not a valid guess. Please enter a lowercase letter only.");
+                        console.log( colors.yellow(answer.userGuess + " was not a valid guess. Please enter a lowercase letter only."));
                     }
                     that.getGuess(callback);
                 }
@@ -69,34 +69,3 @@ function Game(){
 
 
 module.exports = Game;
-// initialze the game
-    // set all variables to start values
-        // load a new word
-        // set gameOver to false;
-        // set guess to 12;
-
-// display the prompt to the user using inquirer
-    // take the current word and display current word with _
-    // get user input
-        // check if input is valid with Letter.checkValidGuess()
-            // if it is valid
-                // check user guess Letter vs current word
-                    // if match
-                        // Update current word
-                    // else 
-                        // remove guess
-                        // if guess < 0
-                            // gameOver = true;
-                            // reset the game
-                        // else 
-                            // prompt user for new guess (recursive)
-            // else
-                // tell user input invalid please input proper guess
-                    //prompt for new user guess (recursive)
-
-// prompt user for game reset
-    //if user whats to play again
-        // startGame
-        // prompt user for guess
-    // else 
-        //exit game

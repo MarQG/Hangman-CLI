@@ -1,5 +1,22 @@
 function Words(){
-    this.wordsArr = ["richter belmont", 'dracula tepes'];
+    this.wordsArr = [
+        'cloud strife', 
+        'squall leonhart', 
+        'lighning claire farron', 
+        'vaan', 
+        'noctis lucis caelum', 
+        'tidus', 
+        'terra branford', 
+        'zidan tribal', 
+        'hero of light', 
+        'firion', 
+        'luneth', 
+        'cecil harvey', 
+        'bartz klauser',
+        'ramza beoulve',
+        'marche radiuju',
+        'luso clemens'
+    ];
     this.generateDisplayWord = function(word){
         var genDisplayWord = [];
         for(var i=0; i< word.length; i++){
@@ -27,20 +44,3 @@ function Words(){
 }
 
 module.exports = Words;
-
-//pick a word from our word bank
-    // select current word
-
-// function pickWord()
-    // return randomWord from wordsArray
-
-// function updateCurrentWord(currentWord, currentGuess)
-    //check if currentGuess exists
-            // process the word showing the currentGuess letters
-                //remove currentGuess from availableGuesses
-                // return displayUpdatedWord
-        // else
-            // process the word and show current word
-                // return displayedWord
-
-    // return string of processed word
