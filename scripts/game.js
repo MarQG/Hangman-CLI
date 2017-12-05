@@ -35,7 +35,6 @@ function Game(){
                         console.log(colors.green("\nCorrect!\n"));
                         that.displayWord = that.newWord.updateDisplayWord(answer.userGuess, that.currentWord, that.displayWord);
                         if(that.currentWord === that.displayWord.join("")){
-                            that.displayGame();
                             console.log(colors.green("You won!\n"));
                             that.gameOver = true;     
                         }   
@@ -44,7 +43,6 @@ function Game(){
                             that.guesses--;
                             console.log(colors.red("Wrong!\n"));
                         } else {
-                            that.displayGame();
                             console.log(colors.red("\nSorry you lost!\n"));
                             that.gameOver = true;
                         }
@@ -64,6 +62,7 @@ function Game(){
                 
             });
         } else {
+            that.newWord.displayAnswer(this.currentWord);
             callback();
         }
     }

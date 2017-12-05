@@ -41,6 +41,14 @@ function Words(){
         }
         return displayWord;
     }
+
+    this.displayAnswer = function(currentWord){
+        var displayAnswer = []
+        for(var i =0; i < currentWord.length; i++){
+            displayAnswer.push(currentWord.charAt(i));
+        }
+        console.log("The answer is: " + displayAnswer.join(" "));
+    }
 }
 
 module.exports = Words;
