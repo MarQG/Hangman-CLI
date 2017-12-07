@@ -2,7 +2,7 @@ function Words(){
     this.wordsArr = [
         'cloud strife', 
         'squall leonhart', 
-        'lighning claire farron', 
+        'lightning claire farron', 
         'vaan', 
         'noctis lucis caelum', 
         'tidus', 
